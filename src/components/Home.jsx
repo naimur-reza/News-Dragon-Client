@@ -4,6 +4,7 @@ import Header from "./Header";
 import { Col, Container, Row } from "react-bootstrap";
 import LeftNav from "./Navigation/LeftNav/LeftNav";
 import RightNav from "./Navigation/RightNav/RightNav";
+import News from "./News/News";
 const Home = () => {
   return (
     <Container className="mx-auto py-5 my-2">
@@ -11,7 +12,9 @@ const Home = () => {
         <Col sm={3}>
           <LeftNav />
         </Col>
-        <Col sm={6}>sm=8</Col>
+        <Col sm={6}>
+          <News></News>
+        </Col>
         <Col sm={3}>
           <RightNav />
         </Col>
