@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBookmark, FaShareAlt } from "react-icons/fa";
-const SingleNews = ({ cat_news }) => {
+import "./news.css";
+const SingleNews = ({ newsData }) => {
   const {
     author,
     title,
@@ -10,8 +11,8 @@ const SingleNews = ({ cat_news }) => {
     thumbnail_url,
     details,
     image_url,
-  } = cat_news || {};
-  const { img, name, published_date } = author || {};
+  } = newsData || {};
+  const { img, name, published_date } = author;
   return (
     <div className="py-2">
       <div className="p-2 d-flex gap-3  bg-light align-items-center ">
@@ -37,7 +38,7 @@ const SingleNews = ({ cat_news }) => {
         </h5>
         <img className="img-fluid" src={image_url} alt="" />
         <p className="text-muted mt-3 tracking-tighter">
-          {details?.slice(0, 300)}...
+          {details.slice(0, 300)}...
           <span className="ms-2 fw-bold  cursor-pointer">Read More</span>
         </p>
       </div>

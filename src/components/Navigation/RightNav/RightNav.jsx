@@ -12,7 +12,6 @@ import Qzone from "./Qzone";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 const RightNav = () => {
   const { user, signInGoogle } = useContext(AuthContext);
-  console.log(user);
 
   // make the pop up with google feature
   return (

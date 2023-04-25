@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   return (
     <Container>
       <div className="text-center">

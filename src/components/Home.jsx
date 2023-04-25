@@ -1,19 +1,18 @@
 import React from "react";
-import logo from "../../src/assets/logo.png";
-import Header from "./Header";
 import { Col, Container, Row } from "react-bootstrap";
-import LeftNav from "./Navigation/LeftNav/LeftNav";
 import RightNav from "./Navigation/RightNav/RightNav";
+import Categories from "./Navigation/LeftNav/Categories";
 import News from "./News/News";
+import { Outlet } from "react-router-dom";
 const Home = () => {
   return (
     <Container className="mx-auto py-5 my-2">
       <Row>
         <Col sm={3}>
-          <LeftNav />
+          <Categories />
         </Col>
         <Col sm={6}>
-          <News></News>
+          <Outlet />
         </Col>
         <Col sm={3}>
           <RightNav />

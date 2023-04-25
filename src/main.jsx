@@ -8,9 +8,11 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
-import News from "./components/News/News";
 import About from "./components/About/About";
 import Career from "./components/Career/Career";
+import LeftNav from "./components/Navigation/LeftNav/Categories";
+import Categories from "./components/Navigation/LeftNav/Categories";
+import News from "./components/News/News";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,16 +31,18 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/news",
-        element: <News />,
-      },
-      {
         path: "/about",
         element: <About />,
       },
       {
         path: "/career",
         element: <Career />,
+      },
+      {
+        path: "/categories/:id",
+        element: <News />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/categories/${params.id}`),
       },
     ],
   },

@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 import SingleNews from "./SingleNews";
 
 const News = () => {
-  const [news, setNews] = useState([]);
+  const [allNews, setAllNews] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/news`)
-      .then((res) => res.json())
-      .then((data) => setNews(data));
+      .then((response) => response.json())
+      .then((data) => setAllNews(data));
   }, []);
-
+  const data = useLoaderData();
+  const { id } = useParams();
+  const news = allNews.filter((news) => news.category_id === id);
   return (
     <>
-      <h5>Dragon News Home</h5>
-      <div>
-        {news.map((newsData) => (
-          <SingleNews
-            newsData={newsData}
-            key={newsData.category_id}
-          ></SingleNews>
-        ))}
-      </div>
+      {news.map((cat_news, idx) => (
+        <SingleNews key={idx} cat_news={cat_news}></SingleNews>
+      ))}
     </>
   );
 };

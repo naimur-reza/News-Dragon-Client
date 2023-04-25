@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const LeftNav = () => {
+const Categories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -10,16 +10,19 @@ const LeftNav = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <>
-      {categories.map((ct) => (
-        <p key={ct.id}>
-          <Link className="text-decoration-none text-muted fw-semibold">
+    <div>
+      {categories.map((ct, idx) => (
+        <p key={idx}>
+          <Link
+            to={`/categories/${ct.id}`}
+            className="text-decoration-none text-muted fw-semibold"
+          >
             {ct.name}
           </Link>
         </p>
       ))}
-    </>
+    </div>
   );
 };
 
-export default LeftNav;
+export default Categories;
