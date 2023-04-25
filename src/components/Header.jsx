@@ -42,13 +42,15 @@ const Header = () => {
               </Link>
             </Nav>
             <div className="d-flex align-items-center gap-3">
-              <button className="btn btn-light ">Profile</button>
+              <Link to={"/profile"} className="btn btn-light ">
+                Profile
+              </Link>
               <Button variant="dark">
                 {user ? (
                   <Link
                     onClick={logOut}
                     className="text-decoration-none text-white"
-                    to={"/login"}
+                    to={"/"}
                   >
                     Logout
                   </Link>

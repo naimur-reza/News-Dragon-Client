@@ -13,6 +13,7 @@ import Career from "./components/Career/Career";
 import LeftNav from "./components/Navigation/LeftNav/Categories";
 import Categories from "./components/Navigation/LeftNav/Categories";
 import News from "./components/News/News";
+import Profile from "./components/Profile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/career",
         element: <Career />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },
