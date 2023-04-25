@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
-import Login from "./components/Login";
 import Register from "./components/Register";
+import Login from "./components/Login";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import About from "./components/About/About";
 import Career from "./components/Career/Career";
@@ -16,6 +16,7 @@ import News from "./components/News/News";
 import Profile from "./components/Profile";
 import DetailsNews from "./components/DetailsNews/DetailsNews";
 import NewsLayout from "./components/DetailsNews/NewsLayout";
+import LoginLayout from "./components/LoginLayout/LoginLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,10 +35,6 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
         path: "/register",
         element: <Register />,
       },
@@ -53,6 +50,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+
       {
         path: "/about",
         element: <About />,
@@ -64,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

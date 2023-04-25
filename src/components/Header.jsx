@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider/AuthProvider";
+import Navigation from "./Navigation";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
@@ -30,17 +31,7 @@ const Header = () => {
       <>
         <Navbar bg="white" variant="white">
           <Container>
-            <Nav className="mx-auto d-flex text- gap-4">
-              <Link className="text-muted text-decoration-none" to={"/"}>
-                Home
-              </Link>
-              <Link className="text-muted text-decoration-none" to={"/about"}>
-                About
-              </Link>
-              <Link className="text-muted text-decoration-none" to={"/career"}>
-                Career
-              </Link>
-            </Nav>
+            <Navigation />
             <div className="d-flex align-items-center gap-3">
               <Link to={"/profile"} className="btn btn-light ">
                 Profile

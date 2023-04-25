@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { AuthContext } from "./AuthProvider/AuthProvider";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-
-function Login() {
-  const { createUser } = useContext(AuthContext);
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+const Register = () => {
+  const { logIn } = useContext(AuthContext);
   const location = useLocation();
   console.log(location);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
-    createUser(email, password)
+    logIn(email, password)
       .then((res) => {
         const loggedUser = res.user;
         console.log(loggedUser);
@@ -22,11 +21,10 @@ function Login() {
         console.log(err);
       });
   };
-
   return (
     <div className="d-flex align-items-center justify-content-center py-5">
-      <Form className="bg-light p-4 rounded" onSubmit={handleLogin}>
-        <h2 className="text-center mb-4">Register Your Account</h2>
+      <Form className="bg-light   p-4 " onSubmit={handleRegister}>
+        <h2 className="text-center mb-4">Login Your Account</h2>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -47,13 +45,15 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <p className="py-2">Already have an account?</p>
+        <p className="py-2">
+          New to here? <Link to={"/register"}>Register Now</Link>
+        </p>
         <Button variant="primary" type="submit" className="w-100 mt-3">
           Sign in
         </Button>
       </Form>
     </div>
   );
-}
+};
 
-export default Login;
+export default Register;
