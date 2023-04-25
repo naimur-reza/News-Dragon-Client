@@ -27,7 +27,7 @@ const Register = () => {
         <h2 className="text-center mb-4">Login Your Account</h2>
 
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fw-semibold">Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -37,7 +37,7 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -46,9 +46,15 @@ const Register = () => {
           />
         </Form.Group>
         <p className="py-2">
-          New to here? <Link to={"/register"}>Register Now</Link>
+          New to here?{" "}
+          <Link
+            className="text-decoration-none text-danger fw-semibold"
+            to={"/register"}
+          >
+            Register Now
+          </Link>
         </p>
-        <Button variant="primary" type="submit" className="w-100 mt-3">
+        <Button variant="dark" type="submit" className="w-100 mt-3">
           Sign in
         </Button>
       </Form>

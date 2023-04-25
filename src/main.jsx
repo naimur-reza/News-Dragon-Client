@@ -34,10 +34,7 @@ const router = createBrowserRouter([
           },
         ],
       },
-      {
-        path: "/register",
-        element: <Register />,
-      },
+
       {
         path: "/news",
         element: <NewsLayout />,
@@ -66,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

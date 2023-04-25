@@ -56,11 +56,17 @@ function Register() {
           />
         </Form.Group>
         <p className="py-2">
-          Already have an account? <Link to={"/login"}>Login Now</Link>
+          Already have an account?{" "}
+          <Link
+            className="text-decoration-none text-danger fw-semibold"
+            to={"/login"}
+          >
+            Login Now
+          </Link>
         </p>
 
         <Button variant="dark" type="submit" className="w-100 mt-3">
-          Sign in
+          Sign Up
         </Button>
       </Form>
     </div>
