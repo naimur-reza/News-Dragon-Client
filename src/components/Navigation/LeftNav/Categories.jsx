@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -10,15 +10,19 @@ const Categories = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div>
+    <div className="bg-light p-3 rounded">
       {categories.map((ct, idx) => (
-        <p key={idx}>
-          <Link
+        <p key={idx} className="">
+          <NavLink
             to={`/categories/${ct.id}`}
-            className="text-decoration-none text-muted fw-semibold"
+            className={({ isActive }) =>
+              isActive
+                ? "text-decoration-none text-muted fw-semibold bg-warning  rounded   d-block "
+                : "text-decoration-none    text-muted fw-semibold"
+            }
           >
             {ct.name}
-          </Link>
+          </NavLink>
         </p>
       ))}
     </div>
