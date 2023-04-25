@@ -53,7 +53,7 @@ const SingleNews = ({ cat_news }) => {
         <p className="d-relative text-muted mt-3 tracking-tighter">
           {details?.slice(0, 300)}...
           <Link
-            to={user ? `news/${_id}` : "/login"}
+            to={user ? `../news/${_id}` : "/login"}
             onClick={() => handleDetails(_id)}
             className="ms-2 text-danger fw-bold border-0 bg-white text-decoration-underline "
           >

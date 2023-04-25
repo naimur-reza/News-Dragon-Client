@@ -14,6 +14,8 @@ import LeftNav from "./components/Navigation/LeftNav/Categories";
 import Categories from "./components/Navigation/LeftNav/Categories";
 import News from "./components/News/News";
 import Profile from "./components/Profile";
+import DetailsNews from "./components/DetailsNews/DetailsNews";
+import NewsLayout from "./components/DetailsNews/NewsLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/news",
+        element: <NewsLayout />,
+        children: [
+          {
+            path: "/news/:id",
+            element: <DetailsNews />,
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/news/${params.id}`),
+          },
+        ],
       },
       {
         path: "/about",
