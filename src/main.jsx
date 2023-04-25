@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -26,6 +30,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         children: [
+          {
+            path: "/",
+            element: <Navigate to={"./categories/0"} />,
+          },
           {
             path: "/categories/:id",
             element: <News />,
