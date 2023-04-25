@@ -55,7 +55,19 @@ const RightNav = () => {
       <div className="position-relative ">
         <img src={bg} alt="" />
         <div className="position-absolute top-50 start-50 translate-middle text-muted">
-          <h1>Easy</h1>
+          <h3 className="text-center fw-bold text-white">
+            Create an Amazing Newspaper
+          </h3>
+          <p className="text-center  text-muted fw-semibold">
+            Discover thousands of options, easy to customize layouts, one-click
+            to import demo and much more.
+          </p>
+          <Button
+            variant="danger"
+            className="rounded-0 p-3 fw-semibold d-block mx-auto"
+          >
+            View More
+          </Button>
         </div>
       </div>
     </>

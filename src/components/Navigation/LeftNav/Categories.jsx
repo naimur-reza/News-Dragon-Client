@@ -17,7 +17,7 @@ const Categories = () => {
             to={`/categories/${ct.id}`}
             className={({ isActive }) =>
               isActive
-                ? "text-decoration-none text-muted fw-semibold bg-warning  rounded   d-block "
+                ? "text-decoration-none text-muted fw-semibold bg-warning  rounded  d-block "
                 : "text-decoration-none    text-muted fw-semibold"
             }
           >
