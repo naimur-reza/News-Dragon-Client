@@ -59,7 +59,7 @@ const Header = () => {
                 ) : (
                   <Link
                     className="text-decoration-none text-white d-inline-flex align-items-center gap-2"
-                    to={"/login"}
+                    to={"/authorization"}
                   >
                     Login <FaSignInAlt />
                   </Link>

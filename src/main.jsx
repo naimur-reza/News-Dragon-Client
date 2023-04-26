@@ -70,19 +70,30 @@ const router = createBrowserRouter([
         path: "/career",
         element: <Career />,
       },
+    ],
+  },
+  {
+    path: "/authorization",
+    element: <LoginLayout />,
+    children: [
       {
-        path: "/login",
+        path: "/authorization",
         element: <Login />,
       },
       {
-        path: "/register",
+        path: "/authorization/register",
         element: <Register />,
       },
     ],
   },
+
   {
     path: "/profile",
-    element: <ProfileLayout />,
+    element: (
+      <PrivateRoute>
+        <ProfileLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/profile",

@@ -27,7 +27,7 @@ function Register() {
 
   return (
     <div className="d-flex align-items-center justify-content-center py-5">
-      <Form className="bg-light   p-4 " onSubmit={handleRegister}>
+      <Form className="bg-white rounded   p-5" onSubmit={handleRegister}>
         <h2 className="text-center mb-4">Register Your Account</h2>
 
         <Form.Group controlId="formBasicName">
@@ -61,7 +61,7 @@ function Register() {
           Already have an account?{" "}
           <Link
             className="text-decoration-none text-danger fw-semibold"
-            to={"/login"}
+            to={"/authorization"}
           >
             Login Now
           </Link>

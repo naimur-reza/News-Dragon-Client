@@ -25,7 +25,7 @@ const Register = () => {
   };
   return (
     <div className="d-flex align-items-center justify-content-center py-5">
-      <Form className="bg-light   p-4 " onSubmit={handleRegister}>
+      <Form className="bg-white rounded   p-5 " onSubmit={handleRegister}>
         <h2 className="text-center mb-4">Login Your Account</h2>
 
         <Form.Group controlId="formBasicEmail">
@@ -52,7 +52,7 @@ const Register = () => {
           <Link
             state={form}
             className="text-decoration-none text-danger fw-semibold"
-            to={"/register"}
+            to={"register"}
             replace
           >
             Register Now

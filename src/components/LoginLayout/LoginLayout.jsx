@@ -5,9 +5,12 @@ import { Container } from "react-bootstrap";
 
 const LoginLayout = () => {
   return (
-    <div className="bg-light ">
-      <Container className="d-flex  justify-content-center flex-col py-3">
-        <Navigation />
+    <div className="bg-light  vh-100">
+      <Container className="">
+        <div className="d-flex py-3">
+          <Navigation />
+        </div>
+
         <Outlet />
       </Container>
     </div>
