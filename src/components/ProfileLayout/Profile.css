@@ -1,0 +1,14 @@
+.w-fit{
+    width: fit-content;
+}
+/* .h-150{
+    height: 90px;
+} */
+.m-fit{
+    margin-bottom: 40px;
+
+}
+.fit-icon{
+    width: 30px;
+    height: 30px;
+}

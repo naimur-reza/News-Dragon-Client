@@ -7,6 +7,7 @@ import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 import Navigation from "./Navigation";
+import { FaSign, FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
@@ -40,24 +41,27 @@ const Header = () => {
           <Container>
             <Navigation />
             <div className="d-flex align-items-center gap-3">
-              <Link to={"/profile"} className="btn btn-light ">
-                Profile
+              <Link
+                to={"/profile"}
+                className="btn btn-light border rounded-circle"
+              >
+                <FaUser />
               </Link>
               <Button variant="dark">
                 {user ? (
                   <Link
                     onClick={logOut}
-                    className="text-decoration-none text-white"
+                    className="text-decoration-none text-white d-inline-flex align-items-center gap-2"
                     to={"/"}
                   >
-                    Logout
+                    Logout <FaSignOutAlt />
                   </Link>
                 ) : (
                   <Link
-                    className="text-decoration-none text-white"
+                    className="text-decoration-none text-white d-inline-flex align-items-center gap-2"
                     to={"/login"}
                   >
-                    Login
+                    Login <FaSignInAlt />
                   </Link>
                 )}
               </Button>

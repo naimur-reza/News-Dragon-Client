@@ -22,6 +22,7 @@ import DetailsNews from "./components/DetailsNews/DetailsNews";
 import NewsLayout from "./components/DetailsNews/NewsLayout";
 import LoginLayout from "./components/LoginLayout/LoginLayout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ProfileLayout from "./components/ProfileLayout/ProfileLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,16 +71,22 @@ const router = createBrowserRouter([
         element: <Career />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/profile",
+    element: <ProfileLayout />,
+    children: [
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },
