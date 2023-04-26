@@ -6,17 +6,19 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 function Register() {
   const { createUser } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  const from = location?.state;
+  console.log(from);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  console.log(location);
   const handleRegister = (event) => {
     event.preventDefault();
     createUser(email, password)
       .then((res) => {
         const loggedUser = res.user;
         console.log(loggedUser);
-        navigate("/");
+        navigate(from || "/");
       })
       .catch((err) => {
         console.log(err);

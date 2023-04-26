@@ -11,7 +11,7 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
     <Container>
-      <div className="text-center">
+      <div className="text-center py-4">
         <img src={logo} alt="" />
         <p>Journalism Without Fear And Favor</p>
         <p className="fw-semibold">{moment().format("LLLL")}</p>
@@ -19,13 +19,20 @@ const Header = () => {
       <div className="d-flex bg-light">
         <Button variant="warning">Latest</Button>
         <Marquee
-          className="text-danger"
+          className="text-danger fw-semibold"
           pauseOnHover
           gradient={false}
-          speed={90}
+          speed={22}
         >
-          I can be a React component, multiple React components, or just some
-          text.
+          Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe,
+          Joe Biden, Military, News, Russia, Security, UK, Ukraine, United
+          States, Worthy News (Worthy News) – U.S. President Joe Biden has
+          announced nearly $3 billion in new U.S. military aid for Kyiv as
+          Ukraine marked its independence day six months after Russia invaded
+          the country.'The United States of America is committed to supporting
+          the people of Ukraine as they continue the fight to defend their
+          sovereignty. As part of that commitment, I am proud to announce our
+          biggest tranche of security assistance to date: approximately $2.
         </Marquee>
       </div>
       <>

@@ -5,6 +5,8 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 const Register = () => {
   const { logIn } = useContext(AuthContext);
   const location = useLocation();
+  const form = location?.state?.from?.pathname || "/";
+
   console.log(location);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +17,7 @@ const Register = () => {
       .then((res) => {
         const loggedUser = res.user;
         console.log(loggedUser);
-        navigate("/");
+        navigate(form);
       })
       .catch((err) => {
         console.log(err);
@@ -48,8 +50,10 @@ const Register = () => {
         <p className="py-2">
           New to here?{" "}
           <Link
+            state={form}
             className="text-decoration-none text-danger fw-semibold"
             to={"/register"}
+            replace
           >
             Register Now
           </Link>

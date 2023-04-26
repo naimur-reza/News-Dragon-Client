@@ -53,32 +53,30 @@ const SingleNews = ({ cat_news }) => {
         <p className="d-relative text-muted mt-3 tracking-tighter">
           {details?.slice(0, 300)}...
           <Link
-            to={user ? `../news/${_id}` : "/login"}
+            to={`../news/${_id}`}
             onClick={() => handleDetails(_id)}
             className="ms-2 text-danger fw-bold border-0 bg-white text-decoration-underline "
           >
             Read More
           </Link>
-          <hr />
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="d-flex align-items-center gap-2 ">
-              <Rating
-                className="text-warning  my-2  fs-5 "
-                emptySymbol={<FaRegStar />}
-                fullSymbol={<FaStar />}
-                initialRating={rating.number}
-              />
-              <span className="mt-1 fw-semibold text-muted">
-                {rating.number}
-              </span>
-            </div>
-
-            <div className="d-flex align-items-center gap-2">
-              <FaEye className="fs-5 " />
-              <p className="text-muted d-block my-2 fs-6">{total_view}</p>
-            </div>
-          </div>
         </p>
+        <hr />
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex align-items-center gap-2 ">
+            <Rating
+              className="text-warning  my-2  fs-5 "
+              emptySymbol={<FaRegStar />}
+              fullSymbol={<FaStar />}
+              initialRating={rating.number}
+            />
+            <span className="mt-1 fw-semibold text-muted">{rating.number}</span>
+          </div>
+
+          <div className="d-flex align-items-center gap-2">
+            <FaEye className="fs-5 " />
+            <p className="text-muted d-block my-2 fs-6">{total_view}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

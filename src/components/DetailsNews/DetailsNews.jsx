@@ -1,12 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import EditorInsight from "../EditorInsight/EditorInsight";
+import Spinner from "react-bootstrap/Spinner";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const DetailsNews = () => {
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <Spinner className="w-25 h-25" animation="border" role="status"></Spinner>
+    );
+  }
   const detailsData = useLoaderData();
   const { image_url, title, details, category_id } = detailsData;
-  const ref = useRef();
-  console.log(ref);
+
   return (
     <>
       <div className="card">
