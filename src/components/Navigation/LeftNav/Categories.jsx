@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import styles from "../../ProfileLayout/Profile.css";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
 
@@ -10,14 +10,14 @@ const Categories = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div className="bg-light p-3 rounded">
+    <div className="bg-light p-3 rounded  box">
       {categories.map((ct, idx) => (
-        <p key={idx} className="">
+        <p key={idx}>
           <NavLink
             to={`/categories/${ct.id}`}
-            className={({ isActive }) =>
+            className={({ isActive, isLoading }) =>
               isActive
-                ? "text-decoration-none text-muted fw-semibold bg-warning  rounded  d-block "
+                ? "text-decoration-none  text-muted fw-semibold bg-warning  rounded  d-block "
                 : "text-decoration-none    text-muted fw-semibold"
             }
           >

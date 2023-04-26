@@ -15,7 +15,7 @@ const News = () => {
   if (navigate.state === "loading") {
     return (
       <div className="d-flex justify-content-center align-items-center calc-load">
-        <Spinner animation="grow" />
+        <Spinner animation="grow" variant="warning" />
       </div>
     );
   }

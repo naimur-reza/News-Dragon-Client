@@ -29,11 +29,13 @@ const Profile = () => {
             alt=""
           />
         </div>
-        <h5 className="mb-3 mt-2 bg-white">{displayName ? displayName : ""}</h5>
-        <h5 className="mb-3 mt-2">
+        <h5 className="mb-3 mt-2 bg-white p-2 rounded">
+          {displayName ? displayName : ""}
+        </h5>
+        <h5 className="mb-3 mt-2 p-2 rounded bg-white">
           <FaEnvelope /> : {email}
         </h5>
-        <p className="mb-3 mt-2 fw-semibold">
+        <p className="mb-3 bg-white mt-2 fw-semibold p-2 rounded">
           <FaPhone /> : {phoneNumber ? phoneNumber : "Not Provided"}
         </p>
         <div className="d-flex gap-3 justify-content-center align-items-center">

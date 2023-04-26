@@ -61,7 +61,7 @@ const SingleNews = ({ cat_news }) => {
         </p>
         <hr />
         <div className="d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center gap-2 ">
+          <div disabled className="d-flex align-items-center gap-2 ">
             <Rating
               className="text-warning  my-2  fs-5 "
               emptySymbol={<FaRegStar />}
