@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <Container>
       <div className="text-center py-4">
-        <img src={logo} alt="" />
+        <img className="w-lg-100 p-3 " src={logo} alt="" />
         <p>Journalism Without Fear And Favor</p>
         <p className="fw-semibold">{moment().format("LLLL")}</p>
       </div>

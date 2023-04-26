@@ -25,7 +25,6 @@ const SingleNews = ({ cat_news }) => {
   // console.log(rating);
   const { img, name, published_date } = author || {};
   const handleDetails = (id) => {};
-  console.log(rating.number);
   return (
     <div className="py-2">
       <div className="p-2 d-flex gap-3  bg-light align-items-center ">

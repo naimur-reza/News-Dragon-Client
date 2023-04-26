@@ -12,3 +12,6 @@
     width: 30px;
     height: 30px;
 }
+.calc-load {
+    min-width: calc(100vh -100px);
+}

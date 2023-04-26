@@ -48,12 +48,12 @@ const RightNav = () => {
           <FaTwitter className="text-primary" /> Twitter
         </ListGroup.Item>
       </ListGroup>
-      <div className="my-4 bg-light  rounded">
+      <div className="my-4 bg-light  rounded ">
         <h4 className="text-center py-2">Qzone</h4>
         <Qzone />
       </div>
       <div className="position-relative ">
-        <img src={bg} alt="" />
+        <img className="w-100" src={bg} alt="" />
         <div className="position-absolute top-50 start-50 translate-middle text-muted">
           <h3 className="text-center fw-bold text-white">
             Create an Amazing Newspaper
