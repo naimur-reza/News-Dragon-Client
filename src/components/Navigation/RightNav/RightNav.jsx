@@ -11,7 +11,7 @@ import {
 import Qzone from "./Qzone";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 const RightNav = () => {
-  const { user, signInGoogle } = useContext(AuthContext);
+  const { user, signInGoogle, signInGithub } = useContext(AuthContext);
 
   // make the pop up with google feature
   return (
@@ -28,6 +28,7 @@ const RightNav = () => {
             Login With Google
           </Button>{" "}
           <Button
+            onClick={signInGithub}
             className="d-flex justify-content-center align-items-center gap-2"
             variant="outline-secondary"
           >

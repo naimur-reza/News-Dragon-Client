@@ -10,6 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
+import { toast } from "react-hot-toast";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   // make a user state
@@ -22,6 +23,8 @@ const AuthProvider = ({ children }) => {
   // create user with email and password
   const createUser = (email, password) => {
     setLoading(true);
+    toast.success("Account created");
+
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // pop with google
@@ -32,7 +35,7 @@ const AuthProvider = ({ children }) => {
       .then((res) => {
         const loggedUser = res.user;
         setUser(loggedUser);
-        console.log(loggedUser);
+        toast.success("Login successful");
       })
       .catch((err) => {
         console.log(err);
@@ -47,16 +50,27 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
   const signInGithub = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider);
+
+    return signInWithPopup(auth, githubProvider)
+      .then((res) => {
+        const loggedUser = res.user;
+        setUser(loggedUser);
+        toast.success("Login successful");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   //   sign Out method
   const logOut = () => {
     setLoading(true);
+    toast.success("Logout successful");
     return signOut(auth);
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
       setLoading(false);
     });
     return () => {

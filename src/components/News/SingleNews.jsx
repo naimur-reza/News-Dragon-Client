@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {
-  FaBookmark,
+  FaRegBookmark,
   FaRegStar,
   FaStar,
   FaShareAlt,
@@ -40,8 +40,8 @@ const SingleNews = ({ cat_news }) => {
           <p className="text-muted m-1">{published_date}</p>
         </div>
         <div className="ms-auto d-flex gap-3">
-          <FaBookmark></FaBookmark>
-          <FaShareAlt></FaShareAlt>
+          <FaRegBookmark />
+          <FaShareAlt />
         </div>
       </div>
       <div className="p-3 border">

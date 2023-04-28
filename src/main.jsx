@@ -23,6 +23,7 @@ import NewsLayout from "./components/DetailsNews/NewsLayout";
 import LoginLayout from "./components/LoginLayout/LoginLayout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ProfileLayout from "./components/ProfileLayout/ProfileLayout";
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -107,5 +108,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <Toaster />
   </React.StrictMode>
 );

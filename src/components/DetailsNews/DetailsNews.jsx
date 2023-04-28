@@ -32,7 +32,7 @@ const DetailsNews = () => {
       </div>
       <div className="py-3">
         <h4 className="text-muted">Editors Insights</h4>
-        <EditorInsight />
+        <EditorInsight md={2} lg={3} />
       </div>
     </>
   );

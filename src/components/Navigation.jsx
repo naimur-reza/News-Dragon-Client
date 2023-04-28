@@ -1,19 +1,40 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
     <Nav className="mx-auto  fw-semibold  gap-4">
-      <Link className="text-muted text-decoration-none" to={"/"}>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "text-warning text-decoration-none"
+            : "text-muted text-decoration-none"
+        }
+        to={"/categories/0"}
+      >
         Home
-      </Link>
-      <Link className="text-muted text-decoration-none" to={"/about"}>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " text-warning text-decoration-none"
+            : "text-muted text-decoration-none"
+        }
+        to={"/about"}
+      >
         About
-      </Link>
-      <Link className="text-muted text-decoration-none" to={"/career"}>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "text-warning text-decoration-none"
+            : "text-muted text-decoration-none"
+        }
+        to={"/career"}
+      >
         Career
-      </Link>
+      </NavLink>
     </Nav>
   );
 };

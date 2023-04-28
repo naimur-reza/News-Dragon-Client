@@ -4,14 +4,14 @@ import { FaCalendar } from "react-icons/fa";
 import first from "../../../src/assets/1.png";
 import second from "../../../src/assets/2.png";
 import third from "../../../src/assets/3.png";
-const EditorInsight = () => {
+const EditorInsight = ({ md, lg }) => {
   return (
-    <Row xs={1} md={2} lg={3} className="g-4">
+    <Row xs={1} md={md} lg={lg} className="g-4 py-2">
       <Col>
         <Card>
           <Card.Img variant="top" src={first} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Home Is Not Home Without Dad & Mom</Card.Title>
             <div className="d-flex align-items-center gap-3 fs-5">
               <FaCalendar /> <span> Jan 4, 2022 </span>
             </div>

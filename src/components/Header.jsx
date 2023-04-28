@@ -23,7 +23,7 @@ const Header = () => {
           className="text-danger fw-semibold"
           pauseOnHover
           gradient={false}
-          speed={22}
+          speed={40}
         >
           Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe,
           Joe Biden, Military, News, Russia, Security, UK, Ukraine, United
