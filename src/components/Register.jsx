@@ -5,11 +5,14 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 function Register() {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate } = useContext(AuthContext);
   const location = useLocation();
   const from = location?.state;
   const [show, isShow] = useState(false);
+  const [terms, isTerms] = useState(true);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -32,11 +35,12 @@ function Register() {
   const handleRegister = (event) => {
     event.preventDefault();
     const passError = validatePassword();
-
+    // check the password validation error
     if (passError) {
       toast.error(validatePassword);
       return;
     }
+    // user registration
     createUser(email, password)
       .then((res) => {
         const loggedUser = res.user;
@@ -47,6 +51,7 @@ function Register() {
         console.log(err);
         toast.error(err.message);
       });
+    profileUpdate(name, photoUrl);
   };
 
   return (
@@ -56,11 +61,18 @@ function Register() {
 
         <Form.Group controlId="formBasicName">
           <Form.Label className="fw-semibold">Enter Full Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
+          <Form.Control
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder="Enter name"
+          />
         </Form.Group>
         <Form.Group controlId="formBasicEmail">
           <Form.Label className="fw-semibold">Email address</Form.Label>
           <Form.Control
+            required
             type="email"
             placeholder="Enter email"
             value={email}
@@ -70,11 +82,17 @@ function Register() {
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label className="fw-semibold">Photo URL</Form.Label>
-          <Form.Control type="text" placeholder="photo url" />
+          <Form.Control
+            value={photoUrl}
+            onChange={(e) => setPhotoUrl(e.target.value)}
+            type="text"
+            placeholder="photo url"
+          />
         </Form.Group>
         <Form.Group controlId="formBasicPassword">
           <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
+            required
             type={show ? "text" : "password"}
             placeholder="Password"
             value={password}
@@ -98,8 +116,17 @@ function Register() {
           />{" "}
           Show Password
         </span>
+        <span className="d-flex gap-1">
+          <Form.Check onClick={() => isTerms(!terms)} />
+          Accept terms and conditions
+        </span>
 
-        <Button variant="dark" type="submit" className="w-100 mt-3">
+        <Button
+          variant="dark"
+          disabled={terms && true}
+          type="submit"
+          className="w-100 mt-3"
+        >
           Sign Up
         </Button>
       </Form>

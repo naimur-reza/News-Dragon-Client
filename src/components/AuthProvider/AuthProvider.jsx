@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
 import { toast } from "react-hot-toast";
@@ -66,6 +67,20 @@ const AuthProvider = ({ children }) => {
     toast.success("Logout successful");
     return signOut(auth);
   };
+  // update profile with firebase
+  const profileUpdate = (name, photoUrl) => {
+    return updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {
+        //
+        "";
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -86,6 +101,7 @@ const AuthProvider = ({ children }) => {
     signInGithub,
     logOut,
     loading,
+    profileUpdate,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
