@@ -2,26 +2,50 @@ import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 function Register() {
   const { createUser } = useContext(AuthContext);
   const location = useLocation();
   const from = location?.state;
-  console.log(from);
+  const [show, isShow] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  console.log(location);
+
+  // validate password from here
+  const validatePassword = () => {
+    if (password.length < 8) {
+      return "Password must be at least 8 characters long";
+    } else if (!/(?=.*?[A-Z])/.test(password)) {
+      return "Password must contain at least one uppercase letter";
+    } else if (!/(?=.*?[a-z])/.test(password)) {
+      return "Password must contain at least one lowercase letter";
+    } else if (!/(?=.*?[0-9])/.test(password)) {
+      return "Password must contain at least one number";
+    } else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+      return "Password must contain at least one special character";
+    } else {
+      return "";
+    }
+  };
   const handleRegister = (event) => {
     event.preventDefault();
+    const passError = validatePassword();
+
+    if (passError) {
+      toast.error(validatePassword);
+      return;
+    }
     createUser(email, password)
       .then((res) => {
         const loggedUser = res.user;
-        console.log(loggedUser);
         navigate(from || "/");
+        toast.success("Registration successful");
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message);
       });
   };
 
@@ -51,7 +75,7 @@ function Register() {
         <Form.Group controlId="formBasicPassword">
           <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
-            type="password"
+            type={show ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -66,6 +90,14 @@ function Register() {
             Login Now
           </Link>
         </p>
+        <span>
+          <Form.Check
+            onClick={() => isShow(!show)}
+            className="d-inline"
+            aria-label="option 1"
+          />{" "}
+          Show Password
+        </span>
 
         <Button variant="dark" type="submit" className="w-100 mt-3">
           Sign Up

@@ -2,15 +2,15 @@ import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 const Register = () => {
   const { logIn } = useContext(AuthContext);
   const location = useLocation();
   const form = location?.state?.from?.pathname || "/";
-
-  console.log(location);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [show, isSHow] = useState(false);
   const handleRegister = (event) => {
     event.preventDefault();
     logIn(email, password)
@@ -21,6 +21,7 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message);
       });
   };
   return (
@@ -41,13 +42,13 @@ const Register = () => {
         <Form.Group controlId="formBasicPassword">
           <Form.Label className="fw-semibold">Password</Form.Label>
           <Form.Control
-            type="password"
+            type={show ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <p className="py-2">
+        <p className="pt-2">
           New to here?{" "}
           <Link
             state={form}
@@ -58,6 +59,14 @@ const Register = () => {
             Register Now
           </Link>
         </p>
+        <span>
+          <Form.Check
+            onClick={() => isSHow(!show)}
+            className="d-inline"
+            aria-label="option 1"
+          />{" "}
+          Show Password
+        </span>
         <Button variant="dark" type="submit" className="w-100 mt-3">
           Sign in
         </Button>
