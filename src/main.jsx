@@ -41,7 +41,9 @@ const router = createBrowserRouter([
             path: "/categories/:id",
             element: <News />,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/categories/${params.id}`),
+              fetch(
+                `https://myapp-naimur-reza.vercel.app/categories/${params.id}`
+              ),
           },
         ],
       },
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
               </PrivateRoute>
             ),
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/news/${params.id}`),
+              fetch(`https://myapp-naimur-reza.vercel.app/news/${params.id}`),
           },
         ],
       },
