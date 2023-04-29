@@ -8,7 +8,9 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Rating from "react-rating";
+import { Rating } from "@smastrom/react-rating";
+
+import "@smastrom/react-rating/style.css";
 const SingleNews = ({ cat_news }) => {
   const { user } = useContext(AuthContext);
   const {
@@ -64,11 +66,13 @@ const SingleNews = ({ cat_news }) => {
           <div disabled className="d-flex align-items-center gap-2 ">
             <Rating
               className="text-warning  my-2  fs-5 "
-              emptySymbol={<FaRegStar />}
-              fullSymbol={<FaStar />}
-              initialRating={rating.number}
+              style={{ maxWidth: 140 }}
+              value={Math.round(rating?.number)}
+              readonly
             />
-            <span className="mt-1 fw-semibold text-muted">{rating.number}</span>
+            <span className="mt-1 fw-semibold text-muted">
+              {rating?.number}
+            </span>
           </div>
 
           <div className="d-flex align-items-center gap-2">
